@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,8 @@
             --surface-color: #161616;
             --text-main: #f0f0f0;
             --text-muted: #999999;
-            --accent-color: #00ff88; /* Verde neón estilo hacker/dev */
+            --accent-color: #00ff88;
+            /* Verde neón estilo hacker/dev */
             --accent-hover: #00cc6a;
             --border-color: #2a2a2a;
         }
@@ -29,7 +31,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             padding: 2rem;
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -92,32 +94,59 @@
             box-shadow: 0 5px 15px rgba(0, 255, 136, 0.1);
         }
 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 850px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         section {
             background-color: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 2.5rem;
-            margin-bottom: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             animation: fadeInUp 1s ease-out forwards;
             opacity: 0;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Brillo sutil de fondo en las tarjetas */
         section::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
         }
 
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.4s; }
-        section:nth-child(4) { animation-delay: 0.6s; }
-        section:nth-child(5) { animation-delay: 0.8s; }
+        section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        section:nth-child(5) {
+            animation-delay: 0.8s;
+        }
 
         section:hover {
             transform: translateY(-5px);
@@ -239,14 +268,18 @@
             background-color: var(--accent-color);
             border-radius: 4px;
             position: relative;
-            width: 0; /* Empieza en 0 para la animación JS */
+            width: 0;
+            /* Empieza en 0 para la animación JS */
         }
 
         .progress::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: shimmer 2s infinite;
         }
 
@@ -298,26 +331,58 @@
 
         /* Animaciones */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            body { padding: 1rem; }
-            section { padding: 1.5rem; }
-            .contact-info { gap: 1rem; }
-            .contact-info a { padding: 0.4rem 0.8rem; width: 100%; justify-content: center; }
+            body {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            .contact-info a {
+                padding: 0.4rem 0.8rem;
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* Iconos SVG */
@@ -328,148 +393,171 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Miguel García González</h1>
         <div class="subtitle mono">const role = "Programador & Desarrollador";</div>
-        
+
         <div class="contact-info">
-            <a href="mailto:tuemail@ejemplo.com">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                tuemail@ejemplo.com
+            <a href="mailto:miguelgarciagonzalez2009@gmail.com">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                miguelgarciagonzalez2009@gmail.com
             </a>
-            <a href="tel:+34000000000">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                +34 000 000 000
+            <a href="tel:+34601909968">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                +34 601 909 968
             </a>
-            <a href="https://github.com/tu-usuario" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            <a href="https://github.com/Miguel-Garcia9" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
                 GitHub
-            </a>
-            <a href="https://linkedin.com/in/tu-usuario" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                LinkedIn
             </a>
         </div>
     </header>
 
-    <section>
-        <h2>Sobre mí</h2>
-        <p>
-            Soy un joven programador con iniciativa propia y una inmensa curiosidad por la tecnología. Aunque todavía soy estudiante, ya he dado el salto al mundo real creando software a medida para empresas y gestionando automatizaciones complejas con herramientas profesionales.
-        </p>
-        <p>
-            Me considero una persona resolutiva y autodidacta. Disfruto analizando problemas y transformándolos en soluciones eficientes mediante código. Mi objetivo principal es seguir creciendo, aprendiendo nuevas tecnologías y aportando valor real en el mundo del desarrollo de software.
-        </p>
-    </section>
+    <main class="grid-container">
+        <section>
+            <h2>Sobre mí</h2>
+            <p>
+                Soy un joven programador autodidacta y con una gran curiosidad por la tecnología. Aunque
+                todavía soy estudiante, ya he dado el salto al mundo real programando software a medida para empresas y
+                gestionando automatizaciones complejas con herramientas como n8n o Calude Code.
+            </p>
+            <p>
+                Me considero una persona resolutiva y autodidacta. Disfruto analizando problemas y transformándolos en
+                soluciones eficientes mediante código. Mi objetivo principal es seguir creciendo, aprendiendo nuevas
+                tecnologías y aportando valor real en el mundo del desarrollo de software.
+            </p>
+        </section>
 
-    <section>
-        <h2>Experiencia Técnica</h2>
-        
-        <div class="timeline-item">
-            <h3>Desarrollador de Software <span style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| Freelance</span></h3>
-            <div class="date mono">2023 - Presente</div>
-            <p>Diseño, desarrollo y despliegue de una solución de software real para una empresa del sector. El proyecto se centró en digitalizar y resolver cuellos de botella específicos de su modelo de negocio, mejorando significativamente su eficiencia operativa.</p>
-        </div>
+        <section>
+            <h2>Experiencia Técnica</h2>
 
-        <div class="timeline-item">
-            <h3>Ingeniero de Automatización <span style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| Cliente Privado</span></h3>
-            <div class="date mono">2023 - Presente</div>
-            <p>Arquitectura y gestión de flujos de trabajo automatizados utilizando <strong>N8N</strong>. Integración de múltiples APIs y plataformas para eliminar tareas manuales repetitivas, optimizando el tiempo y los recursos del cliente.</p>
-        </div>
-    </section>
+            <div class="timeline-item">
+                <h3>Desarrollador de Software <span
+                        style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| Freelance</span></h3>
+                <div class="date mono">2026</div>
+                <p>Diseño y desarrollo de un programa real para una empresa privada. El proyecto servia para mejorar
+                    los sistemas de la empresa y así ser mas productivos.
+                </p>
+            </div>
 
-    <section>
-        <h2>Educación y Formación</h2>
-        
-        <div class="timeline-item">
-            <h3>Educación Secundaria Obligatoria (4º ESO)</h3>
-            <div class="date mono">En curso</div>
-            <p>Compaginando los estudios reglados con proyectos tecnológicos extracurriculares y aprendizaje autodidacta intensivo en programación.</p>
-        </div>
+            <div class="timeline-item">
+                <h3>Ingeniero de Automatización <span
+                        style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| Cliente Privado</span>
+                </h3>
+                <div class="date mono">2026</div>
+                <p>Arquitectura y gestión de flujos de trabajo automatizados utilizando <strong>N8N</strong>.
+                    Integración de varias APIs y plataformas para eliminar tareas manuales repetitivas, optimizando
+                    el tiempo y los recursos del cliente.</p>
+            </div>
+        </section>
 
-        <div class="timeline-item">
-            <h3>Formación Especializada <span style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| FormaCarm</span></h3>
-            <div class="date mono">Completados</div>
-            <p>Cursos certificados enfocados en potenciar mis habilidades técnicas y transversales:</p>
-            <ul class="custom-list">
-                <li>Ofimática Avanzada y Herramientas Digitales</li>
-                <li>Gestión del Estrés y Productividad Personal</li>
-                <li>Habilidades de Comunicación</li>
-            </ul>
-        </div>
-    </section>
+        <section>
+            <h2>Educación y Formación</h2>
 
-    <section>
-        <h2>Stack & Habilidades</h2>
-        
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>&lt; Hard Skills /&gt;</h3>
-                
-                <div class="skill">
-                    <div class="skill-name">
-                        <span>Programación & Desarrollo</span>
-                        <span>85%</span>
+            <div class="timeline-item">
+                <h3>Educación Secundaria Obligatoria (4º ESO)</h3>
+                <div class="date mono">En curso</div>
+                <p>Compaginando los estudios con proyectos tecnológicos fuera del horario escolar y aprendizaje
+                    autodidacta en programación.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Formación Especializada <span
+                        style="font-weight: normal; color: var(--text-muted); font-size: 1rem;">| FormaCarm</span></h3>
+                <div class="date mono">Completados</div>
+                <p>Cursos certificados enfocados en potenciar mis habilidades técnicas y transversales:</p>
+                <ul class="custom-list">
+                    <li>Ofimática Avanzada y Herramientas Digitales</li>
+                    <li>Gestión del Estrés</li>
+                    <li>Habilidades de Comunicación</li>
+                    <li>Hablar en público</li>
+                    <li>Gestión de equipos de trabajo</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Stack & Habilidades</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>&lt; Hard Skills /&gt;</h3>
+
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>Programación & Desarrollo</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-width="85%"></div>
+
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>N8N / Automatización de procesos</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>Ofimática Avanzada</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>Ventas & Marketing Digital</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="65%"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill">
-                    <div class="skill-name">
-                        <span>N8N / Automatización de procesos</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-width="90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name">
-                        <span>Ofimática Avanzada</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-width="80%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill">
-                    <div class="skill-name">
-                        <span>Ventas & Marketing Digital</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-width="65%"></div>
+                <div class="skill-category">
+                    <h3>&lt; Soft Skills /&gt;</h3>
+                    <div class="badges">
+                        <span class="badge">Resolución de Problemas</span>
+                        <span class="badge">Iniciativa Propia</span>
+                        <span class="badge">Autodidacta</span>
+                        <span class="badge">Trabajo en Equipo</span>
+                        <span class="badge">Organización</span>
+                        <span class="badge">Pensamiento Lógico</span>
+                        <span class="badge">Comunicación</span>
+                        <span class="badge">Adaptabilidad</span>
                     </div>
                 </div>
             </div>
-
-            <div class="skill-category">
-                <h3>&lt; Soft Skills /&gt;</h3>
-                <div class="badges">
-                    <span class="badge">Resolución de Problemas</span>
-                    <span class="badge">Iniciativa Propia</span>
-                    <span class="badge">Autodidacta</span>
-                    <span class="badge">Trabajo en Equipo</span>
-                    <span class="badge">Organización</span>
-                    <span class="badge">Pensamiento Lógico</span>
-                    <span class="badge">Comunicación</span>
-                    <span class="badge">Adaptabilidad</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script>
         // Animación de las barras de progreso al hacer scroll
         document.addEventListener('DOMContentLoaded', () => {
             const progressBars = document.querySelectorAll('.progress');
-            
+
             // Función para comprobar si un elemento está visible en pantalla
             const isElementInViewport = (el) => {
                 const rect = el.getBoundingClientRect();
@@ -500,4 +588,5 @@
         });
     </script>
 </body>
+
 </html>
